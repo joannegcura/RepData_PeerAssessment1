@@ -265,7 +265,13 @@ maxStepsInterval</code></pre>
 </div>
 <div id="imputing-missing-values" class="section level2">
 <h2>Imputing missing values</h2>
-<p>Total number of missing values in the dataset</p>
+<p>Total number of missing values in the dataset.</p>
+<ul>
+<li>get a sense for the missing values</li>
+<li>replace the missing data for a day by the time average over all other days</li>
+<li>assume that the time intervals form a disjoint partitioning of 24 hours is erroneous</li>
+<li>the time interval for each day is approximately 40 hours, this refutes the intervals being disjoint</li>
+</ul>
 <pre class="r"><code>activity2 &lt;- split(activity, activity$interval)
 activity2 &lt;- lapply(activity2, function(x) {
         x$steps[which(is.na(x$steps))] &lt;- mean(x$steps, na.rm = TRUE)

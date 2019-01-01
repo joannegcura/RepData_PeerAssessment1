@@ -70,7 +70,12 @@ maxStepsInterval
 ```
 
 ## Imputing missing values
-Total number of missing values in the dataset
+Total number of missing values in the dataset. 
+
+- get a sense for the missing values
+- replace the missing data for a day by the time average over all other days
+- assume that the time intervals form a disjoint partitioning of 24 hours is erroneous
+- the time interval for each day is approximately 40 hours, this refutes the intervals being disjoint
 
 ```{r impute missing values}
 
